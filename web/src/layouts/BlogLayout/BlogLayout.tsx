@@ -1,4 +1,8 @@
-import { Link, routes } from '@redwoodjs/router'
+// import { Link, routes } from '@redwoodjs/router'
+
+import { Container } from 'reactstrap'
+
+import BlogNavbar from '../../components/BlogNavbar/BlogNavbar'
 
 type BlogLayoutProps = {
   children?: React.ReactNode
@@ -7,25 +11,10 @@ type BlogLayoutProps = {
 const BlogLayout = ({ children }: BlogLayoutProps) => {
   return (
     <>
-      <header>
-        <h1>
-          <Link to={routes.home()}>Redwood Blog</Link>
-        </h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to={routes.home()}>Home</Link>
-            </li>
-            <li>
-              <Link to={routes.about()}>About</Link>
-            </li>
-            <li>
-              <Link to={routes.contact()}>Contact</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main>{children}</main>
+      <BlogNavbar />
+      <Container className="bg-light border" fluid>
+        {children}
+      </Container>
     </>
   )
 }

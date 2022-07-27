@@ -1,3 +1,4 @@
+import { Container, Row } from 'reactstrap'
 import {
   CreateContactMutation,
   CreateContactMutationVariables,
@@ -51,46 +52,57 @@ const ContactPage = () => {
     <>
       <MetaTags title="Contact" description="Contact page" />
       <Toaster />
-      <Form
-        onSubmit={onSubmit}
-        config={{ mode: 'onBlur' }}
-        error={error}
-        formMethods={formMethods}
-      >
-        <FormError error={error} wrapperClassName="form-error" />
-        <Label name="name" errorClassName="error">
-          Name
-        </Label>
-        <TextField
-          name="name"
-          validation={{ required: true }}
-          errorClassName="error"
-        />
-        <FieldError name="name" className="error" />
-
-        <Label name="email" errorClassName="error">
-          Email
-        </Label>
-        <TextField
-          name="email"
-          validation={{
-            required: true,
+      <Row>
+        <Container
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-          errorClassName="error"
-        />
-        <FieldError name="email" className="error" />
+        >
+          <Form
+            // className="bg-danger"
+            onSubmit={onSubmit}
+            config={{ mode: 'onBlur' }}
+            error={error}
+            formMethods={formMethods}
+          >
+            <FormError error={error} wrapperClassName="form-error" />
+            <Label name="name" errorClassName="error">
+              Name
+            </Label>
+            <TextField
+              name="name"
+              validation={{ required: true }}
+              errorClassName="error"
+            />
+            <FieldError name="name" className="error" />
 
-        <Label name="message" errorClassName="error">
-          Message
-        </Label>
-        <TextAreaField
-          name="message"
-          validation={{ required: true }}
-          errorClassName="error"
-        />
-        <FieldError name="message" className="error" />
-        <Submit disabled={loading}>Save</Submit>
-      </Form>
+            <Label name="email" errorClassName="error">
+              Email
+            </Label>
+            <TextField
+              name="email"
+              validation={{
+                required: true,
+              }}
+              errorClassName="error"
+            />
+            <FieldError name="email" className="error" />
+
+            <Label name="message" errorClassName="error">
+              Message
+            </Label>
+            <TextAreaField
+              name="message"
+              validation={{ required: true }}
+              errorClassName="error"
+            />
+            <FieldError name="message" className="error" />
+            <Submit disabled={loading}>Save</Submit>
+          </Form>
+        </Container>
+      </Row>
     </>
   )
 }
