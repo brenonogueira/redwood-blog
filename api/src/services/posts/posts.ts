@@ -9,6 +9,9 @@ export const posts: QueryResolvers['posts'] = () => {
 export const post: QueryResolvers['post'] = ({ id }) => {
   return db.post.findUnique({
     where: { id },
+    include: {
+      comments: true,
+    },
   })
 }
 
